@@ -1,3 +1,4 @@
+import reddit from "./redditapi.js";
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
 
@@ -17,6 +18,12 @@ searchForm.addEventListener("submit", (event) => {
     // show message
     showMessage("Please add a search term", "alert-danger");
   }
+
+  // clear input
+  searchInput.value = "";
+
+  // search reddit
+  reddit.search(searchTerm, sortBy, searchLimit);
 
   event.preventDefault();
 });
