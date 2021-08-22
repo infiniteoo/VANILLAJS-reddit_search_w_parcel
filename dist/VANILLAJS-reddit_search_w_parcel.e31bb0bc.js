@@ -168,7 +168,13 @@ searchForm.addEventListener("submit", function (event) {
   searchInput.value = ""; // search reddit
 
   _redditapi.default.search(searchTerm, sortBy, searchLimit).then(function (results) {
-    console.log(results);
+    var output = "<div class=\"card-columns\">"; // loop through posts
+
+    results.forEach(function (post) {
+      output += "\n        <div class=\"card\">\n          <img class=\"card-img-top\" src=\"".concat(post.thumbnail, "\" alt=\"Card image cap\">\n          <div class=\"card-body\">\n            <h5 class=\"card-title\">").concat(post.title, "</h5>\n            <p class=\"card-text\">").concat(post.author, "</p>\n            <a href=\"").concat(post.url, "\" target=\"_blank\" class=\"btn btn-primary\">Read More</a>\n            <hr>\n            <span class=\"badge badge-secondary\">Subreddit: ").concat(post.subreddit, "</span>\n            <span class=\"badge badge-dark\">Score: ").concat(post.score, "</span>\n          </div>\n        </div>\n\n      \n      ");
+    });
+    output += "</div>";
+    document.getElementById("results").innerHTML = output;
   });
 
   event.preventDefault();

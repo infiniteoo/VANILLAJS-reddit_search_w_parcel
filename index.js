@@ -24,7 +24,29 @@ searchForm.addEventListener("submit", (event) => {
 
   // search reddit
   reddit.search(searchTerm, sortBy, searchLimit).then((results) => {
-    console.log(results);
+    let output = `<div class="card-columns">`;
+
+    // loop through posts
+    results.forEach((post) => {
+      output += `
+        <div class="card">
+          <img class="card-img-top" src="${post.thumbnail}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">${post.title}</h5>
+            <p class="card-text">${post.author}</p>
+            <a href="${post.url}" target="_blank" class="btn btn-primary">Read More</a>
+            <hr>
+            <span class="badge badge-secondary">Subreddit: ${post.subreddit}</span>
+            <span class="badge badge-dark">Score: ${post.score}</span>
+          </div>
+        </div>
+
+      
+      `;
+    });
+
+    output += "</div>";
+    document.getElementById("results").innerHTML = output;
   });
 
   event.preventDefault();
