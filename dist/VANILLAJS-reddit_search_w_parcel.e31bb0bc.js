@@ -125,11 +125,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _default = {
-  search: function search(searchTerm, searchLimit, sortBy) {
-    fetch("http://www.reddit.com/search.json?q=".concat(searchTerm)).then(function (response) {
+  search: function search(searchTerm, sortBy, searchLimit) {
+    console.log("searchLimit", searchLimit);
+    fetch("http://www.reddit.com/search.json?q=".concat(searchTerm, "&sort=").concat(sortBy, "&limit=").concat(searchLimit)).then(function (response) {
       return response.json();
     }).then(function (data) {
-      return console.log(data);
+      return console.log(data.data.children);
     });
   }
 };
