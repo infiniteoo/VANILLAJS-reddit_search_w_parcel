@@ -28,9 +28,12 @@ searchForm.addEventListener("submit", (event) => {
 
     // loop through posts
     results.forEach((post) => {
+      let image = post.preview
+        ? post.preview.images[0].source.url
+        : "https://cdn.comparitech.com/wp-content/uploads/2017/08/reddit-1.jpg";
       output += `
         <div class="card">
-          <img class="card-img-top" src="${post.thumbnail}" alt="Card image cap">
+          <img class="card-img-top" src="${image}" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">${post.title}</h5>
             <p class="card-text">${post.author}</p>

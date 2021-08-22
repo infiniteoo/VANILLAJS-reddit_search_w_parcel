@@ -171,7 +171,8 @@ searchForm.addEventListener("submit", function (event) {
     var output = "<div class=\"card-columns\">"; // loop through posts
 
     results.forEach(function (post) {
-      output += "\n        <div class=\"card\">\n          <img class=\"card-img-top\" src=\"".concat(post.thumbnail, "\" alt=\"Card image cap\">\n          <div class=\"card-body\">\n            <h5 class=\"card-title\">").concat(post.title, "</h5>\n            <p class=\"card-text\">").concat(post.author, "</p>\n            <a href=\"").concat(post.url, "\" target=\"_blank\" class=\"btn btn-primary\">Read More</a>\n            <hr>\n            <span class=\"badge badge-secondary\">Subreddit: ").concat(post.subreddit, "</span>\n            <span class=\"badge badge-dark\">Score: ").concat(post.score, "</span>\n          </div>\n        </div>\n\n      \n      ");
+      var image = post.preview ? post.preview.images[0].source.url : "https://cdn.comparitech.com/wp-content/uploads/2017/08/reddit-1.jpg";
+      output += "\n        <div class=\"card\">\n          <img class=\"card-img-top\" src=\"".concat(image, "\" alt=\"Card image cap\">\n          <div class=\"card-body\">\n            <h5 class=\"card-title\">").concat(post.title, "</h5>\n            <p class=\"card-text\">").concat(post.author, "</p>\n            <a href=\"").concat(post.url, "\" target=\"_blank\" class=\"btn btn-primary\">Read More</a>\n            <hr>\n            <span class=\"badge badge-secondary\">Subreddit: ").concat(post.subreddit, "</span>\n            <span class=\"badge badge-dark\">Score: ").concat(post.score, "</span>\n          </div>\n        </div>\n\n      \n      ");
     });
     output += "</div>";
     document.getElementById("results").innerHTML = output;
