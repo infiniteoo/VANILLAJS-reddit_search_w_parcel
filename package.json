@@ -1,0 +1,29 @@
+{
+  "name": "VANILLAJS-reddit_search_w_parcel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "parcel": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infiniteoo/VANILLAJS-reddit_search_w_parcel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infiniteoo/VANILLAJS-reddit_search_w_parcel/issues"
+  },
+  "homepage": "https://github.com/infiniteoo/VANILLAJS-reddit_search_w_parcel#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.3.2",
+    "babel-preset-env": "^1.7.0",
+    "parcel-bundler": "^1.12.5",
+    "postcss-modules": "^4.2.2"
+  }
+}
