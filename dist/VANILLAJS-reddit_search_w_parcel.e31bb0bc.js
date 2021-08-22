@@ -129,9 +129,34 @@ searchForm.addEventListener("submit", function (event) {
   console.log(sortBy); // get limit
 
   var searchLimit = document.getElementById("limit").value;
-  console.log(searchLimit);
+  console.log(searchLimit); // check input
+
+  if (searchTerm === "") {
+    // show message
+    showMessage("Please add a search term", "alert-danger");
+  }
+
   event.preventDefault();
-});
+}); // Show Message Function
+
+function showMessage(message, className) {
+  // Create div
+  var div = document.createElement("div"); // Add classes
+
+  div.className = "alert ".concat(className); // Add text
+
+  div.appendChild(document.createTextNode(message)); // Get parent
+
+  var searchContainer = document.getElementById("search-container"); // Get form
+
+  var search = document.getElementById("search"); // Insert alert
+
+  searchContainer.insertBefore(div, search); // Timeout after 3 sec
+
+  setTimeout(function () {
+    document.querySelector(".alert").remove();
+  }, 3000);
+}
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
