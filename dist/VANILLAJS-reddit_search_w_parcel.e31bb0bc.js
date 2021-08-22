@@ -127,10 +127,14 @@ exports.default = void 0;
 var _default = {
   search: function search(searchTerm, sortBy, searchLimit) {
     console.log("searchLimit", searchLimit);
-    fetch("http://www.reddit.com/search.json?q=".concat(searchTerm, "&sort=").concat(sortBy, "&limit=").concat(searchLimit)).then(function (response) {
+    return fetch("http://www.reddit.com/search.json?q=".concat(searchTerm, "&sort=").concat(sortBy, "&limit=").concat(searchLimit)).then(function (response) {
       return response.json();
     }).then(function (data) {
-      return console.log(data.data.children);
+      return data.data.children.map(function (data) {
+        return data.data;
+      });
+    }).catch(function (err) {
+      return console.log(err);
     });
   }
 };
@@ -163,7 +167,9 @@ searchForm.addEventListener("submit", function (event) {
 
   searchInput.value = ""; // search reddit
 
-  _redditapi.default.search(searchTerm, sortBy, searchLimit);
+  _redditapi.default.search(searchTerm, sortBy, searchLimit).then(function (results) {
+    console.log(results);
+  });
 
   event.preventDefault();
 }); // Show Message Function
