@@ -126,7 +126,10 @@ searchForm.addEventListener("submit", function (event) {
   console.log(searchTerm); //get sort input value
 
   var sortBy = document.querySelector('input[name="sortby"]:checked').value;
-  console.log(sortBy);
+  console.log(sortBy); // get limit
+
+  var searchLimit = document.getElementById("limit").value;
+  console.log(searchLimit);
   event.preventDefault();
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
