@@ -121,7 +121,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var searchForm = document.getElementById("search-form");
 var searchInput = document.getElementById("search-input");
 searchForm.addEventListener("submit", function (event) {
-  console.log(123);
+  // get search input value
+  var searchTerm = searchInput.value;
+  console.log(searchTerm); //get sort input value
+
+  var sortBy = document.querySelector('input[name="sortby"]:checked').value;
+  console.log(sortBy);
   event.preventDefault();
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
